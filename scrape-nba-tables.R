@@ -14,14 +14,16 @@ library(stringr)
 # NOTE: MAKE SURE THIS FILE IS IN THE PROJECT HOME DIRECTORY #
 ##############################################################
 #CHOOSE THE CURRENT FILE: stats133-final-project/
+this.dir <- dirname(parent.frame(2)$ofile)
+print(this.dir)
+setwd(this.dir)
+
 #curr_file <- file.choose()
 #sep_curr_loc <- stringr::str_split(curr_file, "/")[[1]]
 #curr_dir <- paste(sep_curr_loc[1:length(sep_curr_loc)-1], collapse = "/")
 #setwd(curr_dir)
+# getwd()
 
-this.dir <- dirname(parent.frame(2)$ofile)
-print(this.dir)
-setwd(this.dir)
 
 
 # base url
@@ -88,7 +90,7 @@ for (team_num in 1:length(team_hrefs)) {
     # read roster table as data.frame and export it as csv
     roster <- readHTMLTable(html_doc[begin_roster:line_counter])
     write.csv(roster, 
-      file = paste0('rawdata/roster-data/roster-', team_names[team_num], '.csv'))
+      file = paste0('data/rawdata/roster-data/roster-', team_names[team_num], '.csv'))
     
     # initial line position of totals html table
     begin_totals <- grep('id="totals"', html_doc)
@@ -100,7 +102,7 @@ for (team_num in 1:length(team_hrefs)) {
     # read totals table as data.frame and export it as csv
     totals <- readHTMLTable(html_doc[begin_totals:line_counter])
     write.csv(totals, 
-      file = paste0('rawdata/stat-data/stats-', team_names[team_num], '.csv'))
+      file = paste0('data/rawdata/stat-data/stats-', team_names[team_num], '.csv'))
     
     
     # initial line position of salaries html table
@@ -113,5 +115,5 @@ for (team_num in 1:length(team_hrefs)) {
     # read salaries table as data.frame and export it as csv
     salaries <- readHTMLTable(html_doc[begin_salaries:line_counter])
     write.csv(salaries, 
-      file = paste0('rawdata/salary-data/salaries-', team_names[team_num], '.csv'))
+      file = paste0('data/rawdata/salary-data/salaries-', team_names[team_num], '.csv'))
 }
