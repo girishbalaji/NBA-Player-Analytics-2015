@@ -14,9 +14,16 @@ library(stringr)
 # NOTE: MAKE SURE THIS FILE IS IN THE PROJECT HOME DIRECTORY #
 ##############################################################
 #CHOOSE THE CURRENT FILE: stats133-final-project/
-curr_file <- file.choose()
-sep_curr_loc <- stringr::str_split(curr_file, "/")[[1]]
-curr_dir <- paste(sep_curr_loc[1:length(sep_curr_loc)-1], collapse = "/")
+#curr_file <- file.choose()
+#sep_curr_loc <- stringr::str_split(curr_file, "/")[[1]]
+#curr_dir <- paste(sep_curr_loc[1:length(sep_curr_loc)-1], collapse = "/")
+#setwd(curr_dir)
+
+this.dir <- dirname(parent.frame(2)$ofile)
+print(this.dir)
+setwd(this.dir)
+
+
 # base url
 basketref <- 'http://www.basketball-reference.com'
 
