@@ -8,9 +8,13 @@
 # to the corresponding subdirectory in the 'rawdata/' folder
 # =========================================================================
 
-
 library(XML)
 
+#############################################################
+# NOTE: IF YOU EVER MOVE THE FILE FIX THE WORKING DIRECTORY #
+#############################################################
+curr_loc <- getwd()
+setwd(paste(curr_loc, "/", "data", sep=""))
 # base url
 basketref <- 'http://www.basketball-reference.com'
 
@@ -59,44 +63,46 @@ team_names <- substr(team_hrefs, 8, 10)
 # and scrapes the required tables
 # =========================================================================
 
-# Read html document (as a character vector) for a given team
-# (first team is "CLE")
-url_team <- paste0(basketref, team_hrefs[1])
-html_doc <- readLines(con = url_team)
-
-# initial line position of roster html table
-begin_roster <- grep('id="roster"', html_doc)
-# find the line where the html ends
-line_counter <- begin_roster
-while (!grepl("</table>", html_doc[line_counter])) {
-  line_counter <- line_counter + 1
+for (team_num in 1:length(team_hrefs)) {
+    # Read html document (as a character vector) for a given team
+    # (first team is "CLE")
+    url_team <- paste0(basketref, team_hrefs[team_num])
+    html_doc <- readLines(con = url_team)
+    
+    # initial line position of roster html table
+    begin_roster <- grep('id="roster"', html_doc)
+    # find the line where the html ends
+    line_counter <- begin_roster
+    while (!grepl("</table>", html_doc[line_counter])) {
+      line_counter <- line_counter + 1
+    }
+    # read roster table as data.frame and export it as csv
+    roster <- readHTMLTable(html_doc[begin_roster:line_counter])
+    write.csv(roster, 
+      file = paste0('rawdata/roster-data/roster-', team_names[team_num], '.csv'))
+    
+    # initial line position of totals html table
+    begin_totals <- grep('id="totals"', html_doc)
+    # find the line where the html ends
+    line_counter <- begin_totals
+    while (!grepl("</table>", html_doc[line_counter])) {
+      line_counter <- line_counter + 1
+    }
+    # read totals table as data.frame and export it as csv
+    totals <- readHTMLTable(html_doc[begin_totals:line_counter])
+    write.csv(totals, 
+      file = paste0('rawdata/stat-data/stats-', team_names[team_num], '.csv'))
+    
+    
+    # initial line position of salaries html table
+    begin_salaries <- grep('id="salaries"', html_doc)
+    # find the line where the html ends
+    line_counter <- begin_salaries
+    while (!grepl("</table>", html_doc[line_counter])) {
+      line_counter <- line_counter + 1
+    }
+    # read salaries table as data.frame and export it as csv
+    salaries <- readHTMLTable(html_doc[begin_salaries:line_counter])
+    write.csv(salaries, 
+      file = paste0('rawdata/salary-data/salaries-', team_names[team_num], '.csv'))
 }
-# read roster table as data.frame and export it as csv
-roster <- readHTMLTable(html_doc[begin_roster:line_counter])
-write.csv(roster, 
-  file = paste0('rawdata/roster-data/roster-', team_names[1], '.csv'))
-
-# initial line position of totals html table
-begin_totals <- grep('id="totals"', html_doc)
-# find the line where the html ends
-line_counter <- begin_totals
-while (!grepl("</table>", html_doc[line_counter])) {
-  line_counter <- line_counter + 1
-}
-# read totals table as data.frame and export it as csv
-totals <- readHTMLTable(html_doc[begin_totals:line_counter])
-write.csv(totals, 
-  file = paste0('rawdata/stat-data/stats-', team_names[1], '.csv'))
-
-
-# initial line position of salaries html table
-begin_salaries <- grep('id="salaries"', html_doc)
-# find the line where the html ends
-line_counter <- begin_salaries
-while (!grepl("</table>", html_doc[line_counter])) {
-  line_counter <- line_counter + 1
-}
-# read salaries table as data.frame and export it as csv
-salaries <- readHTMLTable(html_doc[begin_salaries:line_counter])
-write.csv(salaries, 
-  file = paste0('rawdata/salary-data/salaries-', team_names[1], '.csv'))
