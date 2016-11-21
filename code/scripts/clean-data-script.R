@@ -39,28 +39,41 @@ clean_data <- function() {
     # just in case, here's the character vector with the team abbreviations
     team_names <- substr(team_hrefs, 8, 10)
     
+    
+    
     all_players = data.frame(team_rank = numeric(),
                           team_num = numeric(),
                           player = character(),
                           salary = character(),
                           team_name = character()
                           )
+    nrow_old = 0
     for (team_num in 1:length(team_hrefs)) {
-        curr_salary_file = paste0('data/rawdata/salary-data/salaries-', team_names[team_num], '.csv')
-        curr_salary_df = read.csv(curr_salary_file)
-        colnames(curr_salary_df) <- c("X", "salary_rank", "player_name", "salary")
-        curr_roster_file = paste0('data/rawdata/roster-data/roster-', team_names[team_num], '.csv')
-        curr_roster_df = read.csv(curr_roster_file)
-        colnames(curr_roster_df) <- c("X", "roster_number", "player_name", "position", "height", "weight", "birthday", "misc", "experience", "college")
-        curr_stat_file = paste0('data/rawdata/stat-data/stats-', team_names[team_num], '.csv')
-        curr_stat_df = read.csv(curr_stat_file)
-        colnames(curr_stat_df)[colnames(curr_stat_df) == "totals.Player"] = "player_name"
-        
-        curr_df <- merge(curr_salary_df, curr_roster_df, by="player_name")
-        curr_df <- merge(curr_df, curr_stat_df, by="player_name")
-        curr_df <- dplyr::mutate(curr_df, team_name = rep(team_names[team_num], nrow(curr_df)))
-        
-        all_players = rbind(all_players, curr_df)
+        if (!(team_names[team_num] %in% all_players$team_name)) { 
+            curr_salary_file = paste0('data/rawdata/salary-data/salaries-', team_names[team_num], '.csv')
+            curr_salary_df = read.csv(curr_salary_file, stringsAsFactors = FALSE)
+            colnames(curr_salary_df) <- c("X", "salary_rank", "player_name", "salary")
+            curr_roster_file = paste0('data/rawdata/roster-data/roster-', team_names[team_num], '.csv')
+            curr_roster_df = read.csv(curr_roster_file, stringsAsFactors = FALSE)
+            colnames(curr_roster_df) <- c("X", "roster_number", "player_name", "position", "height", "weight", "birthday", "misc", "experience", "college")
+            curr_stat_file = paste0('data/rawdata/stat-data/stats-', team_names[team_num], '.csv')
+            curr_stat_df = read.csv(curr_stat_file, stringsAsFactors = FALSE)
+            colnames(curr_stat_df)[colnames(curr_stat_df) == "totals.Player"] = "player_name"
+            
+            curr_df <- merge(curr_salary_df, curr_roster_df, by="player_name")
+            curr_df <- merge(curr_df, curr_stat_df, by="player_name")
+            curr_df <- dplyr::mutate(curr_df, team_name = rep(team_names[team_num], nrow(curr_df)))
+                
+            all_players = rbind(all_players, curr_df)
+            
+            
+            # print(paste("Salary: ", nrow(curr_salary_df)))
+            # print(paste("Roster: ", nrow(curr_roster_df)))
+            # print(paste("Stat: ", nrow(curr_stat_df)))
+            # print(paste("Total Players: ", nrow(all_players)))
+            # print(paste("Num Added: ", nrow(all_players) - nrow_old))
+            nrow_old = nrow(all_players)
+        }
     }
     return (all_players)
 }
