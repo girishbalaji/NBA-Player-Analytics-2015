@@ -102,8 +102,8 @@ clean_col_names <- function(df) {
         colnames(df) <- c("player", "salary_rank", "salary", "roster_number", "position", 
                           "height", "weight", "birthday", "country", "experience", 
                           "college", "stat_rank", "age", "games", "games_started",
-                          "minutes_played", "field_goals", "field_goal_attempts", "field_goal_pct", "3_points", 
-                          "3_point_attempts", "3_point_pct", "2_points", "2_point_attempts", "2_point_pct", 
+                          "minutes_played", "field_goals", "field_goal_attempts", "field_goal_pct", "three_points", 
+                          "three_point_attempts", "three_point_pct", "two_points", "two_point_attempts", "two_point_pct", 
                           "eff_field_goal_pct", "free_throws", "free_throw_attempts", "free_throw_pct", "offensive_rebounds", 
                           "defensive_rebounds", "total_rebounds", "assists", "steals", "blocks", 
                           "turnovers", "personal_fouls", "points", "team_name")
@@ -124,7 +124,7 @@ clean_data <- function() {
     all_players <- clean_numeric_data(all_players)
     all_players <- clean_datetime_data(all_players)
     all_players <- clean_col_names(all_players)
-    all_players <- clear_bad_positions(all_players)
-    write.csv(all_players, file = paste0('data/cleandata/all_players_data', '.csv'))
+    all_players <- clean_bad_positions(all_players)
+    write.csv(all_players, file = paste0('data/cleandata/all_players_data', '.csv'), row.names = FALSE)
     return(all_players)
 }
