@@ -49,33 +49,40 @@ compute_efficiency <- function() {
     
     #Calculate Centers Efficiency
     pca_centers = prcomp(all_centers[,1:8], scale=TRUE)
-    centers_stdevs = pca_centers[1]$sdev
-    centers_PC1 = pca_centers[2]$rotation[,1]
-    all_centers$Eff = get_eff(all_centers, centers_PC1/centers_stdevs)
+    #centers_stdevs = pca_centers[1]$sdev
+    #centers_PC1 = pca_centers[2]$rotation[,1]
+    #all_centers$Eff = get_eff(all_centers, centers_PC1/centers_stdevs)
+    all_centers$Eff = pca_centers$x[,1]
     
     #Calculate Power Forwards Efficiency
     pca_pfs = prcomp(all_power_forwards[,1:8], scale=TRUE)
-    pfs_stdevs = pca_pfs[1]$sdev
-    pfs_PC1 = pca_centers[2]$rotation[,1]
-    all_power_forwards$Eff = get_eff(all_power_forwards, pfs_PC1/pfs_stdevs)
+    #pfs_stdevs = pca_pfs[1]$sdev
+    #pfs_PC1 = pca_centers[2]$rotation[,1]
+    #all_power_forwards$Eff = get_eff(all_power_forwards, pfs_PC1/pfs_stdevs)
+    all_power_forwards$Eff = pca_pfs$x[,1]
+    
     
     #Calculate Small Forwards Efficiency
     pca_sfs = prcomp(all_small_forwards[,1:8], scale=TRUE)
-    sfs_stdevs = pca_sfs[1]$sdev
-    sfs_PC1 = pca_sfs[2]$rotation[,1]
-    all_small_forwards$Eff = get_eff(all_small_forwards, sfs_PC1/sfs_stdevs)
+    #sfs_stdevs = pca_sfs[1]$sdev
+    #sfs_PC1 = pca_sfs[2]$rotation[,1]
+    #all_small_forwards$Eff = get_eff(all_small_forwards, sfs_PC1/sfs_stdevs)
+    all_small_forwards$Eff = pca_sfs$x[,1]
+    
     
     #Calculate Shooting Guards Efficiency
     pca_sgs = prcomp(all_shooting_guards[,1:8], scale=TRUE)
-    sgs_stdevs = pca_sgs[1]$sdev
-    sgs_PC1 = pca_sgs[2]$rotation[,1]
-    all_shooting_guards$Eff = get_eff(all_shooting_guards, sgs_PC1/sgs_stdevs)
+    #sgs_stdevs = pca_sgs[1]$sdev
+    #sgs_PC1 = pca_sgs[2]$rotation[,1]
+    #all_shooting_guards$Eff = get_eff(all_shooting_guards, sgs_PC1/sgs_stdevs)
+    all_shooting_guards$Eff = pca_sgs$x[,1]
     
     #Calculate Point Guards Efficiency 
     pca_pgs = prcomp(all_point_guards[,1:8], scale=TRUE)
-    pgs_stdevs = pca_pgs[1]$sdev
-    pgs_PC1 = pca_pgs[2]$rotation[,1]
-    all_point_guards$Eff = get_eff(all_point_guards, pgs_PC1/pgs_stdevs)
+    #pgs_stdevs = pca_pgs[1]$sdev
+    #pgs_PC1 = pca_pgs[2]$rotation[,1]
+    #all_point_guards$Eff = get_eff(all_point_guards, pgs_PC1/pgs_stdevs)
+    all_point_guards$Eff = pca_pgs$x[,1]
     
     final_eff_df <- rbind(all_centers, all_power_forwards)
     final_eff_df <- rbind(final_eff_df, all_small_forwards)
