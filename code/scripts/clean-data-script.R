@@ -83,7 +83,7 @@ clean_numeric_data <- function(df) {
         stop("dataframe doesn't have salary or height parameters")
     }
     df$salary <- as.numeric(stringr::str_replace_all(df$salary, "\\$|,", ""))
-    df$height <- sapply(stringr::str_split(b$height, "-"), function(x)(as.numeric(x[1])*12 + as.numeric(x[2])))
+    df$height <- sapply(stringr::str_split(df$height, "-"), function(x)(as.numeric(x[1])*12 + as.numeric(x[2])))
     return(df)
 }
 
@@ -91,7 +91,7 @@ clean_datetime_data <- function(df) {
     if (!(("birthday" %in% colnames(df)))) {
         stop("dataframe doesn't have birthday parameters")
     }
-    df$birthday <- as.Date(a$birthday, "%b %d, %Y")
+    df$birthday <- as.Date(df$birthday, "%b %d, %Y")
     return(df)
 }
 
