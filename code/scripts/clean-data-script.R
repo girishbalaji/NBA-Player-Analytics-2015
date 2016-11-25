@@ -126,5 +126,9 @@ clean_data <- function() {
     all_players <- clean_col_names(all_players)
     all_players <- clean_bad_positions(all_players)
     write.csv(all_players, file = paste0('data/cleandata/all_players_data', '.csv'), row.names = FALSE)
+    team_allplayers<- all_players %>% group_by(team_name)
+    team_salaries<- team_allplayers %>% summarize(totalpayroll = sum(salary),minimumsalary=min(salary),maxsalary=max(salary),firstquantile=quantile(salary,0.25),
+    median=quantile(salary,0.50),thirdquantile=quantile(salary,0.75),average=mean(salary),interquartilerange=IQR(salary),standardev=sd(salary))
+    write.csv(team_salaries,file = paste0('data/cleandata/team-salaries', '.csv'), row.names = FALSE)
     return(all_players)
 }
