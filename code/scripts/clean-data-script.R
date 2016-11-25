@@ -95,10 +95,36 @@ clean_datetime_data <- function(df) {
     return(df)
 }
 
+clean_col_names <- function(df) {
+    if (!(ncol(df) == 39)) {
+        stop("The imported data dataframe should have 39 columns")
+    } else {
+        colnames(df) <- c("player", "salary_rank", "salary", "roster_number", "position", 
+                          "height", "weight", "birthday", "country", "experience", 
+                          "college", "stat_rank", "age", "games", "games_started",
+                          "minutes_played", "field_goals", "field_goal_attempts", "field_goal_pct", "3_points", 
+                          "3_point_attempts", "3_point_pct", "2_points", "2_point_attempts", "2_point_pct", 
+                          "eff_field_goal_pct", "free_throws", "free_throw_attempts", "free_throw_pct", "offensive_rebounds", 
+                          "defensive_rebounds", "total_rebounds", "assists", "steals", "blocks", 
+                          "turnovers", "personal_fouls", "points", "team_name")
+    }
+    return (df)
+}
+
+clean_bad_positions <- function(df) {
+    if (!("position" %in% colnames(df))) {
+        stop("dataframe doesn't have position column")
+    }
+    df <- dplyr::filter(df, position %in% c("C", "PF", "SF", "SG", "PG"))
+    return(df)
+}
+
 clean_data <- function() {
     all_players <- merge_data()
     all_players <- clean_numeric_data(all_players)
     all_players <- clean_datetime_data(all_players)
+    all_players <- clean_col_names(all_players)
+    all_players <- clear_bad_positions(all_players)
     write.csv(all_players, file = paste0('data/cleandata/all_players_data', '.csv'))
     return(all_players)
 }
