@@ -8,8 +8,8 @@ sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$salary)) + 
   geom_boxplot()
 ggsave("../../images/salaries.png")
-ggplot(analysis, aes(x=analysis$salary)) + 
-  +     geom_histogram()
+ggplot(data=analysis, aes(analysis$salary)) + 
+       geom_histogram()
 ggsave("../../images/salaries1.png")
 sink("../../data/cleandata/eda-output.txt")
 summary(analysis$height)
@@ -18,8 +18,8 @@ sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$height)) + 
   geom_boxplot()
 ggsave("../../images/height.png")
-ggplot(analysis, aes(x=analysis$height)) + 
-  +     geom_histogram()
+ggplot(data=analysis, aes(analysis$height)) + 
+       geom_histogram()
 ggsave("../../images/height1.png")
 sink("../../data/cleandata/eda-output.txt")
 summary(analysis$weight)
@@ -28,8 +28,8 @@ sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$weight)) + 
   geom_boxplot()
 ggsave("../../images/weight.png")
-ggplot(analysis, aes(x=analysis$weight)) + 
-  +     geom_histogram()
+ggplot(data=analysis, aes(analysis$weight)) + 
+      geom_histogram()
 ggsave("../../images/weight1.png")
 sink("../../data/cleandata/eda-output.txt")
 summary(analysis$G)
@@ -38,8 +38,8 @@ sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$G)) + 
   geom_boxplot()
 ggsave("../../images/G.png")
-ggplot(analysis, aes(x=analysis$G)) + 
-  +     geom_histogram()
+ggplot(data=analysis, aes(analysis$G)) + 
+       geom_histogram()
 ggsave("../../images/G1.png")
 sink("../../data/cleandata/eda-output.txt")
 summary(analysis$FG)
@@ -48,8 +48,8 @@ sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$FG)) + 
   geom_boxplot()
 ggsave("../../images/FG.png")
-ggplot(analysis, aes(x=analysis$FG)) + 
-  +     geom_histogram()
+ggplot(data=analysis, aes(analysis$FG)) + 
+      geom_histogram()
 ggsave("../../images/FG1.png")
 sink("../../data/cleandata/eda-output.txt")
 summary(analysis$FGA)
@@ -58,8 +58,8 @@ sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$FGA)) + 
   geom_boxplot()
 ggsave("../../images/FGA.png")
-ggplot(analysis, aes(x=analysis$FGA)) + 
-  +     geom_histogram()
+ggplot(data=analysis, aes(analysis$FGA)) + 
+       geom_histogram()
 ggsave("../../images/FGA1.png")
 sink("../../data/cleandata/eda-output.txt")
 summary(analysis$FT)
@@ -68,8 +68,8 @@ sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$FT)) + 
   geom_boxplot()
 ggsave("../../images/FT.png")
-ggplot(analysis, aes(x=analysis$FT)) + 
-  +     geom_histogram()
+ggplot(data=analysis, aes(analysis$FT)) + 
+       geom_histogram()
 ggsave("../../images/FT1.png")
 sink("../../data/cleandata/eda-output.txt")
 summary(analysis$FTA)
@@ -78,8 +78,8 @@ sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$FTA)) + 
   geom_boxplot()
 ggsave("../../images/FTA.png")
-ggplot(analysis, aes(x=analysis$FTA)) + 
-  +     geom_histogram()
+ggplot(data=analysis, aes(analysis$FTA)) + 
+       geom_histogram()
 ggsave("../../images/FTA1.png")
 sink("../../data/cleandata/eda-output.txt")
 summary(analysis$TRB)
@@ -88,8 +88,8 @@ sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$TRB)) + 
   geom_boxplot()
 ggsave("../../images/TRB.png")
-ggplot(analysis, aes(x=analysis$TRB)) + 
-  +     geom_histogram()
+ggplot(data=analysis, aes(analysis$TRB)) + 
+       geom_histogram()
 ggsave("../../images/TRB1.png")
 sink("../../data/cleandata/eda-output.txt")
 summary(analysis$AST)
@@ -98,8 +98,8 @@ sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$AST)) + 
   geom_boxplot()
 ggsave("../../images/AST.png")
-ggplot(analysis, aes(x=analysis$AST)) + 
-  +     geom_histogram()
+ggplot(data=analysis, aes(analysis$AST)) + 
+       geom_histogram()
 ggsave("../../images/AST1.png")
 sink("../../data/cleandata/eda-output.txt")
 summary(analysis$STL)
@@ -108,8 +108,8 @@ sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$STL)) + 
   geom_boxplot()
 ggsave("../../images/STL.png")
-ggplot(analysis, aes(x=analysis$STL)) + 
-  +     geom_histogram()
+ggplot(data=analysis, aes(analysis$STL)) + 
+       geom_histogram()
 ggsave("../../images/STL1.png")
 sink("../../data/cleandata/eda-output.txt")
 summary(analysis$BLK)
@@ -118,8 +118,8 @@ sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$BLK)) + 
   geom_boxplot()
 ggsave("../../images/BLK.png")
-ggplot(analysis, aes(x=analysis$BLK)) + 
-  +     geom_histogram()
+ggplot(data=analysis, aes(analysis$BLK)) + 
+       geom_histogram()
 ggsave("../../images/BLK1.png")
 sink("../../data/cleandata/eda-output.txt")
 summary(analysis$TOV)
@@ -128,8 +128,8 @@ sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$TOV)) + 
   geom_boxplot()
 ggsave("../../images/TOV.png")
-ggplot(analysis, aes(x=analysis$TOV)) + 
-  +     geom_histogram()
+ggplot(data=analysis, aes(analysis$TOV)) + 
+       geom_histogram()
 ggsave("../../images/TOV1.png")
 sink("../../data/cleandata/eda-output.txt")
 summary(analysis$PF)
@@ -138,8 +138,8 @@ sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$PF)) + 
   geom_boxplot()
 ggsave("../../images/PF.png")
-ggplot(analysis, aes(x=analysis$PF)) + 
-  +     geom_histogram()
+ggplot(data=analysis, aes(analysis$PF)) + 
+       geom_histogram()
 ggsave("../../images/PF1.png")
 sink("../../data/cleandata/eda-output.txt")
 summary(analysis$PTS)
@@ -148,8 +148,8 @@ sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$PTS)) + 
   geom_boxplot()
 ggsave("../../images/PTS.png")
-ggplot(analysis, aes(x=analysis$PTS)) + 
-  +     geom_histogram()
+ggplot(data=analysis, aes(analysis$PTS)) + 
+       geom_histogram()
 ggsave("../../images/PTS1.png")
 sink("../../data/cleandata/eda-output.txt")
 summary(factor(analysis$Team))
