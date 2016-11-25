@@ -117,3 +117,4 @@ for (team_num in 1:length(team_hrefs)) {
     write.csv(salaries, 
       file = paste0('data/rawdata/salary-data/salaries-', team_names[team_num], '.csv'))
 }
+

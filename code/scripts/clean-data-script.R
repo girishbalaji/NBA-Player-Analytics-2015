@@ -1,7 +1,8 @@
 library(dplyr)
 library(XML)
+library(stringr)
 
-clean_data <- function() {
+merge_data <- function() {
     # base url
     basketref <- 'http://www.basketball-reference.com'
     
@@ -35,45 +36,69 @@ clean_data <- function() {
     # extract the href attribute from the anchor tags
     team_rows <- getNodeSet(doc, "//th[@scope='row']/a")
     team_hrefs <- xmlSApply(team_rows, xmlAttrs)
+    team_hrefs = unique(team_hrefs)
     
     # just in case, here's the character vector with the team abbreviations
     team_names <- substr(team_hrefs, 8, 10)
     
     
+    all_players = data.frame()
+    #nrow_old = 0
     
-    all_players = data.frame(team_rank = numeric(),
-                          team_num = numeric(),
-                          player = character(),
-                          salary = character(),
-                          team_name = character()
-                          )
-    nrow_old = 0
     for (team_num in 1:length(team_hrefs)) {
-        if (!(team_names[team_num] %in% all_players$team_name)) { 
-            curr_salary_file = paste0('data/rawdata/salary-data/salaries-', team_names[team_num], '.csv')
-            curr_salary_df = read.csv(curr_salary_file, stringsAsFactors = FALSE)
-            colnames(curr_salary_df) <- c("X", "salary_rank", "player_name", "salary")
-            curr_roster_file = paste0('data/rawdata/roster-data/roster-', team_names[team_num], '.csv')
-            curr_roster_df = read.csv(curr_roster_file, stringsAsFactors = FALSE)
-            colnames(curr_roster_df) <- c("X", "roster_number", "player_name", "position", "height", "weight", "birthday", "misc", "experience", "college")
-            curr_stat_file = paste0('data/rawdata/stat-data/stats-', team_names[team_num], '.csv')
-            curr_stat_df = read.csv(curr_stat_file, stringsAsFactors = FALSE)
-            colnames(curr_stat_df)[colnames(curr_stat_df) == "totals.Player"] = "player_name"
-            
-            curr_df <- merge(curr_salary_df, curr_roster_df, by="player_name")
-            curr_df <- merge(curr_df, curr_stat_df, by="player_name")
-            curr_df <- dplyr::mutate(curr_df, team_name = rep(team_names[team_num], nrow(curr_df)))
-                
-            all_players = rbind(all_players, curr_df)
-            
-            
-            # print(paste("Salary: ", nrow(curr_salary_df)))
-            # print(paste("Roster: ", nrow(curr_roster_df)))
-            # print(paste("Stat: ", nrow(curr_stat_df)))
-            # print(paste("Total Players: ", nrow(all_players)))
-            # print(paste("Num Added: ", nrow(all_players) - nrow_old))
-            nrow_old = nrow(all_players)
-        }
+        curr_salary_file = paste0('data/rawdata/salary-data/salaries-', team_names[team_num], '.csv')
+        curr_salary_df = read.csv(curr_salary_file, stringsAsFactors = FALSE)
+        colnames(curr_salary_df) <- c("X", "salary_rank", "player", "salary")
+        curr_salary_df <- curr_salary_df[, !(colnames(curr_salary_df) %in% c("X"))]
+        
+        curr_roster_file = paste0('data/rawdata/roster-data/roster-', team_names[team_num], '.csv')
+        curr_roster_df = read.csv(curr_roster_file, stringsAsFactors = FALSE)
+        colnames(curr_roster_df) <- c("X", "roster_number", "player", "position", "height", "weight", "birthday", "country", "experience", "college")
+        curr_roster_df <- curr_roster_df[, !(colnames(curr_roster_df) %in% c("X"))]
+        
+        curr_stat_file = paste0('data/rawdata/stat-data/stats-', team_names[team_num], '.csv')
+        curr_stat_df = read.csv(curr_stat_file, stringsAsFactors = FALSE)
+        curr_stat_df <- curr_stat_df[, !(colnames(curr_stat_df) %in% c("X"))]
+        colnames(curr_stat_df) <- sapply(stringr::str_split(colnames(curr_stat_df), "^totals."), function(x) x[2])
+        colnames(curr_stat_df)[colnames(curr_stat_df) == "Player"] = "player"
+        
+        curr_df <- merge(curr_salary_df, curr_roster_df, by="player")
+        curr_df <- merge(curr_df, curr_stat_df, by="player")
+        curr_df <- dplyr::mutate(curr_df, team_name = rep(team_names[team_num], nrow(curr_df)))
+        
+        # #make the player, college, team_name factors
+        # curr_df$player = as.factor(curr_df$player)
+        # curr_df$college = as.factor(curr_df$college)
+        # curr_df$team_name = as.factor(curr_df$team_name)
+        
+        all_players = rbind(all_players, curr_df)
+    
     }
+    all_players <- all_players %>% group_by(player) %>% filter(n() == 1)
     return (all_players)
+}
+
+clean_numeric_data <- function(df) {
+    if (!(("salary" %in% colnames(df)) & ("height" %in% colnames(df)))) {
+        stop("dataframe doesn't have salary or height parameters")
+    }
+    df$salary <- as.numeric(stringr::str_replace_all(b$salary, "\\$|,", ""))
+    df$height <- sapply(stringr::str_split(b$height, "-"), function(x)(as.numeric(x[1])*12 + as.numeric(x[2])))
+    return(df)
+}
+
+clean_datetime_data <- function(df) {
+    if (!(("birthday" %in% colnames(df)))) {
+        stop("dataframe doesn't have birthday parameters")
+    }
+    df$birthday <- as.Date(a$birthday, "%b %d, %Y")
+    return(df)
+}
+
+clean_data <- function() {
+    all_players <- merge_data()
+    all_players <- clean_numeric_data(all_players)
+    all_players <- clean_datetime_data(all_players)
+    write.csv(all_players, file = paste0('data/cleandata/all_players_data', '.csv'))
+    return(all_players)
 }
