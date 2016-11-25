@@ -82,7 +82,7 @@ clean_numeric_data <- function(df) {
     if (!(("salary" %in% colnames(df)) & ("height" %in% colnames(df)))) {
         stop("dataframe doesn't have salary or height parameters")
     }
-    df$salary <- as.numeric(stringr::str_replace_all(b$salary, "\\$|,", ""))
+    df$salary <- as.numeric(stringr::str_replace_all(df$salary, "\\$|,", ""))
     df$height <- sapply(stringr::str_split(b$height, "-"), function(x)(as.numeric(x[1])*12 + as.numeric(x[2])))
     return(df)
 }

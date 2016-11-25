@@ -81,6 +81,8 @@ compute_efficiency <- function() {
     final_eff_df <- rbind(final_eff_df, all_small_forwards)
     final_eff_df <- rbind(final_eff_df, all_shooting_guards)
     final_eff_df <- rbind(final_eff_df, all_point_guards)
+    
+    return (final_eff_df)
 }
 
 
