@@ -6,7 +6,7 @@ summary(analysis$salary)
 sd(analysis$salary)
 sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$salary)) + 
-  geom_boxplot()
+  geom_boxplot() + coord_flip()
 ggsave("../../images/salaries.png")
 ggplot(data=analysis, aes(analysis$salary)) + 
        geom_histogram()
@@ -16,7 +16,7 @@ summary(analysis$height)
 sd(analysis$height)
 sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$height)) + 
-  geom_boxplot()
+  geom_boxplot() + coord_flip()
 ggsave("../../images/height.png")
 ggplot(data=analysis, aes(analysis$height)) + 
        geom_histogram()
@@ -26,7 +26,7 @@ summary(analysis$weight)
 sd(analysis$weight)
 sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$weight)) + 
-  geom_boxplot()
+  geom_boxplot() + coord_flip()
 ggsave("../../images/weight.png")
 ggplot(data=analysis, aes(analysis$weight)) + 
       geom_histogram()
@@ -36,7 +36,7 @@ summary(analysis$G)
 sd(analysis$G)
 sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$G)) + 
-  geom_boxplot()
+  geom_boxplot() + coord_flip()
 ggsave("../../images/G.png")
 ggplot(data=analysis, aes(analysis$G)) + 
        geom_histogram()
@@ -46,7 +46,7 @@ summary(analysis$FG)
 sd(analysis$FG)
 sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$FG)) + 
-  geom_boxplot()
+  geom_boxplot() + coord_flip()
 ggsave("../../images/FG.png")
 ggplot(data=analysis, aes(analysis$FG)) + 
       geom_histogram()
@@ -56,7 +56,7 @@ summary(analysis$FGA)
 sd(analysis$FGA)
 sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$FGA)) + 
-  geom_boxplot()
+  geom_boxplot() + coord_flip()
 ggsave("../../images/FGA.png")
 ggplot(data=analysis, aes(analysis$FGA)) + 
        geom_histogram()
@@ -66,7 +66,7 @@ summary(analysis$FT)
 sd(analysis$FT)
 sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$FT)) + 
-  geom_boxplot()
+  geom_boxplot() + coord_flip()
 ggsave("../../images/FT.png")
 ggplot(data=analysis, aes(analysis$FT)) + 
        geom_histogram()
@@ -76,7 +76,7 @@ summary(analysis$FTA)
 sd(analysis$FTA)
 sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$FTA)) + 
-  geom_boxplot()
+  geom_boxplot() + coord_flip()
 ggsave("../../images/FTA.png")
 ggplot(data=analysis, aes(analysis$FTA)) + 
        geom_histogram()
@@ -86,7 +86,7 @@ summary(analysis$TRB)
 sd(analysis$TRB)
 sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$TRB)) + 
-  geom_boxplot()
+  geom_boxplot() + coord_flip()
 ggsave("../../images/TRB.png")
 ggplot(data=analysis, aes(analysis$TRB)) + 
        geom_histogram()
@@ -96,7 +96,7 @@ summary(analysis$AST)
 sd(analysis$AST)
 sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$AST)) + 
-  geom_boxplot()
+  geom_boxplot() + coord_flip()
 ggsave("../../images/AST.png")
 ggplot(data=analysis, aes(analysis$AST)) + 
        geom_histogram()
@@ -106,7 +106,7 @@ summary(analysis$STL)
 sd(analysis$STL)
 sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$STL)) + 
-  geom_boxplot()
+  geom_boxplot() + coord_flip()
 ggsave("../../images/STL.png")
 ggplot(data=analysis, aes(analysis$STL)) + 
        geom_histogram()
@@ -116,7 +116,7 @@ summary(analysis$BLK)
 sd(analysis$BLK)
 sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$BLK)) + 
-  geom_boxplot()
+  geom_boxplot() + coord_flip()
 ggsave("../../images/BLK.png")
 ggplot(data=analysis, aes(analysis$BLK)) + 
        geom_histogram()
@@ -126,7 +126,7 @@ summary(analysis$TOV)
 sd(analysis$TOV)
 sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$TOV)) + 
-  geom_boxplot()
+  geom_boxplot() + coord_flip()
 ggsave("../../images/TOV.png")
 ggplot(data=analysis, aes(analysis$TOV)) + 
        geom_histogram()
@@ -136,7 +136,7 @@ summary(analysis$PF)
 sd(analysis$PF)
 sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$PF)) + 
-  geom_boxplot()
+  geom_boxplot() + coord_flip()
 ggsave("../../images/PF.png")
 ggplot(data=analysis, aes(analysis$PF)) + 
        geom_histogram()
@@ -146,7 +146,7 @@ summary(analysis$PTS)
 sd(analysis$PTS)
 sink()
 ggplot(analysis, aes(x=analysis$X1, y=analysis$PTS)) + 
-  geom_boxplot()
+  geom_boxplot() + coord_flip()
 ggsave("../../images/PTS.png")
 ggplot(data=analysis, aes(analysis$PTS)) + 
        geom_histogram()
