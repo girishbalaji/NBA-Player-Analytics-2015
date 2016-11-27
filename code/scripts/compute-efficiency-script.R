@@ -88,7 +88,7 @@ compute_efficiency <- function() {
     final_eff_df <- rbind(final_eff_df, all_small_forwards)
     final_eff_df <- rbind(final_eff_df, all_shooting_guards)
     final_eff_df <- rbind(final_eff_df, all_point_guards)
-    
+    write.csv(final_eff_df, file = paste0('data/cleandata/eff_salary_stats', '.csv'), row.names = FALSE)
     return (final_eff_df)
 }
 
