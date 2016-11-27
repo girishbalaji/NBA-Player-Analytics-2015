@@ -43,11 +43,11 @@ compute_efficiency <- function() {
         dplyr::select(all_players, one_of(c(important_factors, "player", "position", "salary"))) %>%
         dplyr::filter(position == "PG")
     
-    all_centers[,1:8] = scale(all_centers[,1:8], scale=TRUE)
-    all_power_forwards[,1:8] = scale(all_power_forwards[,1:8], scale=TRUE)
-    all_small_forwards[,1:8] = scale(all_small_forwards[,1:8], scale=TRUE)
-    all_shooting_guards[,1:8] = scale(all_shooting_guards[,1:8], scale=TRUE)
-    all_point_guards[,1:8] = scale(all_point_guards[,1:8], scale=TRUE)
+    #all_centers[,1:8] = scale(all_centers[,1:8], scale=TRUE)
+    #all_power_forwards[,1:8] = scale(all_power_forwards[,1:8], scale=TRUE)
+    #all_small_forwards[,1:8] = scale(all_small_forwards[,1:8], scale=TRUE)
+    #all_shooting_guards[,1:8] = scale(all_shooting_guards[,1:8], scale=TRUE)
+    #all_point_guards[,1:8] = scale(all_point_guards[,1:8], scale=TRUE)
     
     #Calculate Centers Efficiency
     pca_centers = prcomp(all_centers[,1:8], scale=TRUE)
