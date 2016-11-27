@@ -26,19 +26,19 @@ compute_efficiency <- function() {
     
     #Subset data into different positions
     all_centers <- 
-        dplyr::select(all_players, one_of(c(important_factors, "player", "position"))) %>%
+        dplyr::select(all_players, one_of(c(important_factors, "player", "position", "salary"))) %>%
         dplyr::filter(position == "C")
     all_power_forwards <- 
-        dplyr::select(all_players, one_of(c(important_factors, "player", "position"))) %>%
+        dplyr::select(all_players, one_of(c(important_factors, "player", "position", "salary"))) %>%
         dplyr::filter(position == "PF")
     all_small_forwards <- 
-        dplyr::select(all_players, one_of(c(important_factors, "player", "position"))) %>%
+        dplyr::select(all_players, one_of(c(important_factors, "player", "position", "salary"))) %>%
         dplyr::filter(position == "SF")
     all_shooting_guards <- 
-        dplyr::select(all_players, one_of(c(important_factors, "player", "position"))) %>%
+        dplyr::select(all_players, one_of(c(important_factors, "player", "position", "salary"))) %>%
         dplyr::filter(position == "SG")
     all_point_guards <-
-        dplyr::select(all_players, one_of(c(important_factors, "player", "position"))) %>%
+        dplyr::select(all_players, one_of(c(important_factors, "player", "position", "salary"))) %>%
         dplyr::filter(position == "PG")
     
     all_centers[,1:8] = scale(all_centers[,1:8], scale=TRUE)
