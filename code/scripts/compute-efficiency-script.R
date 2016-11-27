@@ -21,7 +21,9 @@ compute_efficiency <- function() {
     all_players$missed_free_throws = -1 * all_players$missed_free_throws
     all_players$turnovers = -1 * all_players$turnovers
     for (i in important_factors) {
-        all_players[,i] = all_players[,i] / all_players$games
+        if (!(i == "games")) {
+            all_players[,i] = all_players[,i] / all_players$games    
+        }
     }
     
     #Subset data into different positions
