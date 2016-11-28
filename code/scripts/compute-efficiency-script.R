@@ -17,9 +17,7 @@ compute_efficiency <- function() {
     all_players <- read.csv("data/cleandata/all_players_data.csv", stringsAsFactors = FALSE)
     all_players$missed_field_goals <- all_players$field_goal_attempts - all_players$field_goals
     all_players$missed_free_throws <- all_players$free_throw_attempts - all_players$free_throws
-    all_players$missed_field_goals = -1 * all_players$missed_field_goals
-    all_players$missed_free_throws = -1 * all_players$missed_free_throws
-    all_players$turnovers = -1 * all_players$turnovers
+    all_players <- negate_bad_columns(all_players)
     for (i in important_factors) {
         if (!(i == "games")) {
             all_players[,i] = all_players[,i] / all_players$games    
@@ -91,9 +89,14 @@ compute_efficiency <- function() {
     final_eff_df <- rbind(final_eff_df, all_shooting_guards)
     final_eff_df <- rbind(final_eff_df, all_point_guards)
     write.csv(final_eff_df, file = paste0('data/cleandata/eff_salary_stats', '.csv'), row.names = FALSE)
+    final_eff_df <- negate_bad_columns(final_eff_df)
+    
     return (final_eff_df)
 }
 
+#
+# Negates all the weights if the majority of them are negative
+#
 reverse_negative_weights <- function(weights) {
     if (sum(sign(weights)) < 0) {
         weights = -1 * weights
@@ -101,6 +104,19 @@ reverse_negative_weights <- function(weights) {
     return(weights)
 }
 
+# 
+# Negate the 'missed_field_goals', 'missed_free_throws', and 'turnovers' columns if they all exist
+# 
+negate_bad_columns <- function(df) {
+    df$missed_field_goals = -1 * df$missed_field_goals
+    df$missed_free_throws = -1 * df$missed_free_throws
+    df$turnovers = -1 * df$turnovers
+    return(df)
+}
+
+#
+#Takes matrix first 8 columns times coeffs 8x1 vector
+#
 get_eff <- function(df, coeffs) {
      eff <- c(df[,1]*coeffs[1] +
          df[,2]*coeffs[2] +
