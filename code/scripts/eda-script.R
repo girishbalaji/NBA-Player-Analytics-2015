@@ -1,7 +1,12 @@
+## sinks all the summary statistics of each variable to a text file,
+## saves all ggplot images to the images folder.
 library(readr)
 library(ggplot2)
+# gets the data table for the sinking
 analysis <-
   read_csv("../../data/cleandata/roster-salary-stats.csv", col_names = TRUE)
+# for each variable in the data table, first sink the summary and sd
+# then create ggplots and save them to images.
 sink(file = "../../data/cleandata/eda-output.txt", append = TRUE)
 summary(analysis$salary)
 sd(analysis$salary)

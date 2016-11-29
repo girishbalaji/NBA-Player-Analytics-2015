@@ -1,3 +1,4 @@
+# downloads the data for the subsequent analysis
 library(XML)
 library(stringr)
 

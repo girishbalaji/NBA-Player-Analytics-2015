@@ -1,3 +1,4 @@
+# cleans all the data tables and combines into one major table for analysis.
 library(dplyr)
 library(XML)
 library(stringr)
@@ -44,7 +45,7 @@ merge_data <- function() {
   
   all_players = data.frame()
   #nrow_old = 0
-  
+  # gets each team's csv and information.
   for (team_num in 1:length(team_hrefs)) {
     curr_salary_file = paste0('data/rawdata/salary-data/salaries-',
                               team_names[team_num],
