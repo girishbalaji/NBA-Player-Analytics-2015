@@ -1,13 +1,13 @@
-server <- function(input, output) {
-  
+library(shiny)
+library(ggplot2)
+function(input, output) {
   output$stats_plot <- renderPlot({
     # Read in the clean team salaries data from csv
-    stat_csv = read.csv("data/cleandata/team-salaries.csv")
-    
+  getwd()
+    stat_csv = read.csv('team-salaries.csv')
     # Variables to store the inputs from the UI
     statistic = input$statistics
     ordering = input$order
-    
     # Vector (Dictionary to access statistics)
     stat_dict = c(2:10)
     names(stat_dict) = c("Total Payroll", "Minimum Salary",

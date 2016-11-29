@@ -1,7 +1,10 @@
+library(shiny)
+library(ggplot2)
 #EFF
-server <- function(input, output) {
+function(input, output) {
   output$player_stats_plot <- renderPlot({
-    player_stats_csv = read.csv("data/cleandata/eff_salary_stats.csv")
+    getwd()
+    player_stats_csv = read.csv('eff_salary_stats.csv')
     x_statistic = input$x_statistic
     y_statistic = input$y_statistic
     isSorted = input$sort
@@ -57,7 +60,7 @@ server <- function(input, output) {
     }
   })
   output$correlationText <- renderText({
-    player_stats_csv = read.csv("data/cleandata/eff_salary_stats.csv")
+    player_stats_csv = read.csv('eff_salary_stats.csv')
     x_statistic = input$x_statistic
     y_statistic = input$y_statistic
     isSorted = input$sort
@@ -89,6 +92,3 @@ server <- function(input, output) {
     paste0("Correlation Coefficient: ", corr)
   })
 }
-
-shinyApp(ui = ui, server = server)
-

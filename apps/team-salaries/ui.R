@@ -1,4 +1,6 @@
-ui <- fluidPage(
+library(shiny)
+library(ggplot2)
+fluidPage(
   #Title for page
   titlePanel("Statistics Per NBA Team"),
   

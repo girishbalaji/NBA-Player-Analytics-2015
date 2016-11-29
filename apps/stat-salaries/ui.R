@@ -1,4 +1,5 @@
-ui <- fluidPage(
+
+fluidPage(
   #Title for page
   titlePanel("EFF - Statistics - Salary in NBA"),
   
