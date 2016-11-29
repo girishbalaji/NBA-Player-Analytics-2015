@@ -1,165 +1,172 @@
+## sinks all the summary statistics of each variable to a text file,
+## saves all ggplot images to the images folder.
 library(readr)
 library(ggplot2)
-analysis <- read_csv("../../data/cleandata/roster-salary-stats.csv",col_names=TRUE)
-sink(file="../../data/cleandata/eda-output.txt",append=TRUE)
+# gets the data table for the sinking
+analysis <-
+  read_csv("../../data/cleandata/roster-salary-stats.csv", col_names = TRUE)
+# for each variable in the data table, first sink the summary and sd
+# then create ggplots and save them to images.
+sink(file = "../../data/cleandata/eda-output.txt", append = TRUE)
 summary(analysis$salary)
 sd(analysis$salary)
 sink()
-ggplot(analysis, aes(x=analysis$X1, y=analysis$salary)) + 
+ggplot(analysis, aes(x = analysis$X1, y = analysis$salary)) +
   geom_boxplot() + coord_flip()
 ggsave("../../images/salaries.png")
-ggplot(data=analysis, aes(analysis$salary)) + 
-       geom_histogram()
+ggplot(data = analysis, aes(analysis$salary)) +
+  geom_histogram()
 ggsave("../../images/salaries1.png")
-sink(file="../../data/cleandata/eda-output.txt",append=TRUE)
+
+sink(file = "../../data/cleandata/eda-output.txt", append = TRUE)
 summary(analysis$height)
 sd(analysis$height)
 sink()
-ggplot(analysis, aes(x=analysis$X1, y=analysis$height)) + 
+ggplot(analysis, aes(x = analysis$X1, y = analysis$height)) +
   geom_boxplot() + coord_flip()
 ggsave("../../images/height.png")
-ggplot(data=analysis, aes(analysis$height)) + 
-       geom_histogram()
+ggplot(data = analysis, aes(analysis$height)) +
+  geom_histogram()
 ggsave("../../images/height1.png")
-sink(file="../../data/cleandata/eda-output.txt",append=TRUE)
+sink(file = "../../data/cleandata/eda-output.txt", append = TRUE)
 summary(analysis$weight)
 sd(analysis$weight)
 sink()
-ggplot(analysis, aes(x=analysis$X1, y=analysis$weight)) + 
+ggplot(analysis, aes(x = analysis$X1, y = analysis$weight)) +
   geom_boxplot() + coord_flip()
 ggsave("../../images/weight.png")
-ggplot(data=analysis, aes(analysis$weight)) + 
-      geom_histogram()
+ggplot(data = analysis, aes(analysis$weight)) +
+  geom_histogram()
 ggsave("../../images/weight1.png")
-sink(file="../../data/cleandata/eda-output.txt",append=TRUE)
+sink(file = "../../data/cleandata/eda-output.txt", append = TRUE)
 summary(analysis$G)
 sd(analysis$G)
 sink()
-ggplot(analysis, aes(x=analysis$X1, y=analysis$G)) + 
+ggplot(analysis, aes(x = analysis$X1, y = analysis$G)) +
   geom_boxplot() + coord_flip()
 ggsave("../../images/G.png")
-ggplot(data=analysis, aes(analysis$G)) + 
-       geom_histogram()
+ggplot(data = analysis, aes(analysis$G)) +
+  geom_histogram()
 ggsave("../../images/G1.png")
-sink(file="../../data/cleandata/eda-output.txt",append=TRUE)
+sink(file = "../../data/cleandata/eda-output.txt", append = TRUE)
 summary(analysis$FG)
 sd(analysis$FG)
 sink()
-ggplot(analysis, aes(x=analysis$X1, y=analysis$FG)) + 
+ggplot(analysis, aes(x = analysis$X1, y = analysis$FG)) +
   geom_boxplot() + coord_flip()
 ggsave("../../images/FG.png")
-ggplot(data=analysis, aes(analysis$FG)) + 
-      geom_histogram()
+ggplot(data = analysis, aes(analysis$FG)) +
+  geom_histogram()
 ggsave("../../images/FG1.png")
-sink(file="../../data/cleandata/eda-output.txt",append=TRUE)
+sink(file = "../../data/cleandata/eda-output.txt", append = TRUE)
 summary(analysis$FGA)
 sd(analysis$FGA)
 sink()
-ggplot(analysis, aes(x=analysis$X1, y=analysis$FGA)) + 
+ggplot(analysis, aes(x = analysis$X1, y = analysis$FGA)) +
   geom_boxplot() + coord_flip()
 ggsave("../../images/FGA.png")
-ggplot(data=analysis, aes(analysis$FGA)) + 
-       geom_histogram()
+ggplot(data = analysis, aes(analysis$FGA)) +
+  geom_histogram()
 ggsave("../../images/FGA1.png")
-sink(file="../../data/cleandata/eda-output.txt",append=TRUE)
+sink(file = "../../data/cleandata/eda-output.txt", append = TRUE)
 summary(analysis$FT)
 sd(analysis$FT)
 sink()
-ggplot(analysis, aes(x=analysis$X1, y=analysis$FT)) + 
+ggplot(analysis, aes(x = analysis$X1, y = analysis$FT)) +
   geom_boxplot() + coord_flip()
 ggsave("../../images/FT.png")
-ggplot(data=analysis, aes(analysis$FT)) + 
-       geom_histogram()
+ggplot(data = analysis, aes(analysis$FT)) +
+  geom_histogram()
 ggsave("../../images/FT1.png")
-sink(file="../../data/cleandata/eda-output.txt",append=TRUE)
+sink(file = "../../data/cleandata/eda-output.txt", append = TRUE)
 summary(analysis$FTA)
 sd(analysis$FTA)
 sink()
-ggplot(analysis, aes(x=analysis$X1, y=analysis$FTA)) + 
+ggplot(analysis, aes(x = analysis$X1, y = analysis$FTA)) +
   geom_boxplot() + coord_flip()
 ggsave("../../images/FTA.png")
-ggplot(data=analysis, aes(analysis$FTA)) + 
-       geom_histogram()
+ggplot(data = analysis, aes(analysis$FTA)) +
+  geom_histogram()
 ggsave("../../images/FTA1.png")
-sink(file="../../data/cleandata/eda-output.txt",append=TRUE)
+sink(file = "../../data/cleandata/eda-output.txt", append = TRUE)
 summary(analysis$TRB)
 sd(analysis$TRB)
 sink()
-ggplot(analysis, aes(x=analysis$X1, y=analysis$TRB)) + 
+ggplot(analysis, aes(x = analysis$X1, y = analysis$TRB)) +
   geom_boxplot() + coord_flip()
 ggsave("../../images/TRB.png")
-ggplot(data=analysis, aes(analysis$TRB)) + 
-       geom_histogram()
+ggplot(data = analysis, aes(analysis$TRB)) +
+  geom_histogram()
 ggsave("../../images/TRB1.png")
-sink(file="../../data/cleandata/eda-output.txt",append=TRUE)
+sink(file = "../../data/cleandata/eda-output.txt", append = TRUE)
 summary(analysis$AST)
 sd(analysis$AST)
 sink()
-ggplot(analysis, aes(x=analysis$X1, y=analysis$AST)) + 
+ggplot(analysis, aes(x = analysis$X1, y = analysis$AST)) +
   geom_boxplot() + coord_flip()
 ggsave("../../images/AST.png")
-ggplot(data=analysis, aes(analysis$AST)) + 
-       geom_histogram()
+ggplot(data = analysis, aes(analysis$AST)) +
+  geom_histogram()
 ggsave("../../images/AST1.png")
-sink(file="../../data/cleandata/eda-output.txt",append=TRUE)
+sink(file = "../../data/cleandata/eda-output.txt", append = TRUE)
 summary(analysis$STL)
 sd(analysis$STL)
 sink()
-ggplot(analysis, aes(x=analysis$X1, y=analysis$STL)) + 
+ggplot(analysis, aes(x = analysis$X1, y = analysis$STL)) +
   geom_boxplot() + coord_flip()
 ggsave("../../images/STL.png")
-ggplot(data=analysis, aes(analysis$STL)) + 
-       geom_histogram()
+ggplot(data = analysis, aes(analysis$STL)) +
+  geom_histogram()
 ggsave("../../images/STL1.png")
-sink(file="../../data/cleandata/eda-output.txt",append=TRUE)
+sink(file = "../../data/cleandata/eda-output.txt", append = TRUE)
 summary(analysis$BLK)
 sd(analysis$BLK)
 sink()
-ggplot(analysis, aes(x=analysis$X1, y=analysis$BLK)) + 
+ggplot(analysis, aes(x = analysis$X1, y = analysis$BLK)) +
   geom_boxplot() + coord_flip()
 ggsave("../../images/BLK.png")
-ggplot(data=analysis, aes(analysis$BLK)) + 
-       geom_histogram()
+ggplot(data = analysis, aes(analysis$BLK)) +
+  geom_histogram()
 ggsave("../../images/BLK1.png")
-sink(file="../../data/cleandata/eda-output.txt",append=TRUE)
+sink(file = "../../data/cleandata/eda-output.txt", append = TRUE)
 summary(analysis$TOV)
 sd(analysis$TOV)
 sink()
-ggplot(analysis, aes(x=analysis$X1, y=analysis$TOV)) + 
+ggplot(analysis, aes(x = analysis$X1, y = analysis$TOV)) +
   geom_boxplot() + coord_flip()
 ggsave("../../images/TOV.png")
-ggplot(data=analysis, aes(analysis$TOV)) + 
-       geom_histogram()
+ggplot(data = analysis, aes(analysis$TOV)) +
+  geom_histogram()
 ggsave("../../images/TOV1.png")
-sink(file="../../data/cleandata/eda-output.txt",append=TRUE)
+sink(file = "../../data/cleandata/eda-output.txt", append = TRUE)
 summary(analysis$PF)
 sd(analysis$PF)
 sink()
-ggplot(analysis, aes(x=analysis$X1, y=analysis$PF)) + 
+ggplot(analysis, aes(x = analysis$X1, y = analysis$PF)) +
   geom_boxplot() + coord_flip()
 ggsave("../../images/PF.png")
-ggplot(data=analysis, aes(analysis$PF)) + 
-       geom_histogram()
+ggplot(data = analysis, aes(analysis$PF)) +
+  geom_histogram()
 ggsave("../../images/PF1.png")
-sink(file="../../data/cleandata/eda-output.txt",append=TRUE)
+sink(file = "../../data/cleandata/eda-output.txt", append = TRUE)
 summary(analysis$PTS)
 sd(analysis$PTS)
 sink()
-ggplot(analysis, aes(x=analysis$X1, y=analysis$PTS)) + 
+ggplot(analysis, aes(x = analysis$X1, y = analysis$PTS)) +
   geom_boxplot() + coord_flip()
 ggsave("../../images/PTS.png")
-ggplot(data=analysis, aes(analysis$PTS)) + 
-       geom_histogram()
+ggplot(data = analysis, aes(analysis$PTS)) +
+  geom_histogram()
 ggsave("../../images/PTS1.png")
-sink(file="../../data/cleandata/eda-output.txt",append=TRUE)
+sink(file = "../../data/cleandata/eda-output.txt", append = TRUE)
 summary(factor(analysis$Team))
 sink()
-ggplot(analysis, aes(x=analysis$Team)) + 
+ggplot(analysis, aes(x = analysis$Team)) +
   geom_bar()
 ggsave("../../images/Team.png")
-sink(file="../../data/cleandata/eda-output.txt",append=TRUE)
+sink(file = "../../data/cleandata/eda-output.txt", append = TRUE)
 summary(factor(analysis$position))
 sink()
-ggplot(analysis, aes(x=analysis$position)) + 
+ggplot(analysis, aes(x = analysis$position)) +
   geom_bar()
 ggsave("../../images/position.png")

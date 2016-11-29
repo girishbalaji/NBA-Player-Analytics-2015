@@ -58,12 +58,29 @@ compute_efficiency <- function() {
     final_eff_df <- rbind_all_positions(all_centers, all_power_forwards, 
                                         all_small_forwards, all_shooting_guards, 
                                         all_point_guards)
+
     final_eff_df <- negate_bad_columns(final_eff_df)
-    write.csv(final_eff_df, file = paste0(
-        'data/cleandata/eff_salary_stats', '.csv'), row.names = FALSE)
-    
+    final_eff_df$value = final_eff_df$Eff/final_eff_df$salary
+    output_best_and_worst(final_eff_df)
+
     return (final_eff_df)
 }
+
+#
+# Final df get best and worst post processing 
+# Both prints to console and sinks output to text file
+#
+output_best_and_worst <- function(final_eff_df) {
+    write.csv(final_eff_df, file = paste0(
+        'data/cleandata/eff_salary_stats', '.csv'), row.names = FALSE)
+    sink(file="data/cleandata/best-worst-value-players.txt",append=TRUE)
+    print("Best Valued Players")
+    print(head(arrange(final_eff_df,desc(value)),20)$player)
+    print("Worst Valued Players")
+    print(tail(arrange(final_eff_df,desc(value)),20)$player)
+    sink()
+}
+
 
 #
 # load_per_game_data basically loads and standardizes the data needed
