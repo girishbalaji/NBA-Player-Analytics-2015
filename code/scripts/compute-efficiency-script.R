@@ -89,8 +89,12 @@ compute_efficiency <- function() {
     final_eff_df <- rbind(final_eff_df, all_shooting_guards)
     final_eff_df <- rbind(final_eff_df, all_point_guards)
     final_eff_df <- negate_bad_columns(final_eff_df)
+    final_eff_df$value=final_eff_df$Eff/final_eff_df$salary
     write.csv(final_eff_df, file = paste0('data/cleandata/eff_salary_stats', '.csv'), row.names = FALSE)
-    
+    sink(file="data/cleandata/best-worst-value-players.txt",append=TRUE)
+    print(head(arrange(final_eff_df,desc(Eff)),20))
+    print(tail(arrange(final_eff_df,desc(Eff)),20))
+    sink()
     return (final_eff_df)
 }
 
