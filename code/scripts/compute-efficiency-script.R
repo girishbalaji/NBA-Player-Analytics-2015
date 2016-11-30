@@ -103,7 +103,6 @@ load_per_game_data <- function(important_factors) {
     return(all_players)
 }
 
-
 #
 # Get_position_efficiency returns the efficiency column with the correct
 # position dataframe passed in. Used above to perform PCA and weight projection
@@ -111,7 +110,9 @@ load_per_game_data <- function(important_factors) {
 get_position_efficiency <- function(position_df) {
     pca = prcomp(position_df[,1:8], scale=TRUE)
     stdevs = pca[1]$sdev
-    pc1 = reverse_negative_weights(pca[2]$rotation[,1])
+    #pc1 = reverse_negative_weights(pca[2]$rotation[,1])
+    pc1 = abs(pca[2]$rotation[,1])
+    position_df <- negate_bad_columns(position_df)
     position_df_eff = get_eff(position_df, pc1/stdevs)
 }
 
