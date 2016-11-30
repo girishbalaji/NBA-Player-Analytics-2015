@@ -1,4 +1,4 @@
-# stats133-final-project
+#Stat 133-final-project
 
 NBA Analytics
 
@@ -9,3 +9,5 @@ Authors: Girish Balaji, Rachel Lee, Yian Liou, Canishka De Silva
 
 File Structure: File structure is similar to what is in the Open Source Framework
 (OSF) Structure requirements that were given by the Professor.
+
+This work is licensed under the MIT License.
