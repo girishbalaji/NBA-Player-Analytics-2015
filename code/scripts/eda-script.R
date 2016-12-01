@@ -59,98 +59,98 @@ summary(factor(analysis$position))
 sink()
 # for each variable create ggplots and save them to images.
 ggplot(analysis, aes(x = analysis$X1, y = analysis$salary)) +
-  geom_boxplot() + coord_flip()
+  geom_boxplot() + coord_flip() + xlab("") + ylab("Salary") + ggtitle("Salary Boxplot")
 ggsave("../../images/salaries.png")
 ggplot(data = analysis, aes(analysis$salary)) +
-  geom_histogram()
+  geom_histogram() + xlab("Salary") + ylab("Frequency") + ggtitle("Salary Histogram")
 ggsave("../../images/salaries1.png")
 ggplot(analysis, aes(x = analysis$X1, y = analysis$height)) +
-  geom_boxplot() + coord_flip()
+  geom_boxplot() + coord_flip() + xlab("") + ylab("Height") + ggtitle("Height Boxplot")
 ggsave("../../images/height.png")
 ggplot(data = analysis, aes(analysis$height)) +
-  geom_histogram()
+  geom_histogram() + xlab("Height") + ylab("Frequency") + ggtitle("Height Histogram")
 ggsave("../../images/height1.png")
 ggplot(analysis, aes(x = analysis$X1, y = analysis$weight)) +
-  geom_boxplot() + coord_flip()
+  geom_boxplot() + coord_flip() + xlab("") + ylab("Weight") + ggtitle("Weight Boxplot")
 ggsave("../../images/weight.png")
 ggplot(data = analysis, aes(analysis$weight)) +
-  geom_histogram()
+  geom_histogram() + xlab("Weight") + ylab("Frequency") + ggtitle("Weight Histogram")
 ggsave("../../images/weight1.png")
 ggplot(analysis, aes(x = analysis$X1, y = analysis$G)) +
-  geom_boxplot() + coord_flip()
+  geom_boxplot() + coord_flip() + xlab("") + ylab("G") + ggtitle("G Boxplot")
 ggsave("../../images/G.png")
 ggplot(data = analysis, aes(analysis$G)) +
-  geom_histogram()
+  geom_histogram() + xlab("G") + ylab("Frequency") + ggtitle("G Histogram")
 ggsave("../../images/G1.png")
 ggplot(analysis, aes(x = analysis$X1, y = analysis$FG)) +
-  geom_boxplot() + coord_flip()
+  geom_boxplot() + coord_flip() + xlab("") + ylab("FG") + ggtitle("FG Boxplot")
 ggsave("../../images/FG.png")
 ggplot(data = analysis, aes(analysis$FG)) +
-  geom_histogram()
+  geom_histogram() + xlab("FG") + ylab("Frequency") + ggtitle("FG Histogram")
 ggsave("../../images/FG1.png")
 ggplot(analysis, aes(x = analysis$X1, y = analysis$FGA)) +
-  geom_boxplot() + coord_flip()
+  geom_boxplot() + coord_flip() + xlab("") + ylab("FGA") + ggtitle("FGA Boxplot")
 ggsave("../../images/FGA.png")
 ggplot(data = analysis, aes(analysis$FGA)) +
-  geom_histogram()
+  geom_histogram() + xlab("FGA") + ylab("Frequency") + ggtitle("FGA Histogram")
 ggsave("../../images/FGA1.png")
 ggplot(analysis, aes(x = analysis$X1, y = analysis$FT)) +
-  geom_boxplot() + coord_flip()
+  geom_boxplot() + coord_flip() + xlab("") + ylab("FT") + ggtitle("FT Boxplot")
 ggsave("../../images/FT.png")
 ggplot(data = analysis, aes(analysis$FT)) +
-  geom_histogram()
+  geom_histogram() + xlab("FT") + ylab("Frequency") + ggtitle("FT Histogram")
 ggsave("../../images/FT1.png")
 ggplot(analysis, aes(x = analysis$X1, y = analysis$FTA)) +
-  geom_boxplot() + coord_flip()
+  geom_boxplot() + coord_flip() + xlab("") + ylab("FTA") + ggtitle("FTA Boxplot")
 ggsave("../../images/FTA.png")
 ggplot(data = analysis, aes(analysis$FTA)) +
-  geom_histogram()
+  geom_histogram() + xlab("FTA") + ylab("Frequency") + ggtitle("FTA Histogram")
 ggsave("../../images/FTA1.png")
 ggplot(analysis, aes(x = analysis$X1, y = analysis$TRB)) +
-  geom_boxplot() + coord_flip()
+  geom_boxplot() + coord_flip() + xlab("") + ylab("TRB") + ggtitle("TRB Boxplot")
 ggsave("../../images/TRB.png")
 ggplot(data = analysis, aes(analysis$TRB)) +
-  geom_histogram()
+  geom_histogram() + xlab("TRB") + ylab("Frequency") + ggtitle("TRB Histogram")
 ggsave("../../images/TRB1.png")
 ggplot(analysis, aes(x = analysis$X1, y = analysis$AST)) +
-  geom_boxplot() + coord_flip()
+  geom_boxplot() + coord_flip() + xlab("") + ylab("AST") + ggtitle("AST Boxplot")
 ggsave("../../images/AST.png")
 ggplot(data = analysis, aes(analysis$AST)) +
-  geom_histogram()
+  geom_histogram() + xlab("AST") + ylab("Frequency") + ggtitle("AST Histogram")
 ggsave("../../images/AST1.png")
 ggplot(analysis, aes(x = analysis$X1, y = analysis$STL)) +
-  geom_boxplot() + coord_flip()
+  geom_boxplot() + coord_flip() + xlab("") + ylab("STL") + ggtitle("STL Boxplot")
 ggsave("../../images/STL.png")
 ggplot(data = analysis, aes(analysis$STL)) +
-  geom_histogram()
+  geom_histogram() + xlab("STL") + ylab("Frequency") + ggtitle("STL Histogram")
 ggsave("../../images/STL1.png")
 ggplot(analysis, aes(x = analysis$X1, y = analysis$BLK)) +
-  geom_boxplot() + coord_flip()
+  geom_boxplot() + coord_flip() + xlab("") + ylab("BLK") + ggtitle("BLK Boxplot")
 ggsave("../../images/BLK.png")
 ggplot(data = analysis, aes(analysis$BLK)) +
-  geom_histogram()
+  geom_histogram() + xlab("BLK") + ylab("Frequency") + ggtitle("BLK Histogram")
 ggsave("../../images/BLK1.png")
 ggplot(analysis, aes(x = analysis$X1, y = analysis$TOV)) +
-  geom_boxplot() + coord_flip()
+  geom_boxplot() + coord_flip() + xlab("") + ylab("TOV") + ggtitle("TOV Boxplot")
 ggsave("../../images/TOV.png")
 ggplot(data = analysis, aes(analysis$TOV)) +
-  geom_histogram()
+  geom_histogram() + xlab("TOV") + ylab("Frequency") + ggtitle("TOV Histogram")
 ggsave("../../images/TOV1.png")
 ggplot(analysis, aes(x = analysis$X1, y = analysis$PF)) +
-  geom_boxplot() + coord_flip()
+  geom_boxplot() + coord_flip() + xlab("") + ylab("PF") + ggtitle("PF Boxplot")
 ggsave("../../images/PF.png")
 ggplot(data = analysis, aes(analysis$PF)) +
-  geom_histogram()
+  geom_histogram() + xlab("PF") + ylab("Frequency") + ggtitle("PF Histogram")
 ggsave("../../images/PF1.png")
 ggplot(analysis, aes(x = analysis$X1, y = analysis$PTS)) +
-  geom_boxplot() + coord_flip()
+  geom_boxplot() + coord_flip() + xlab("") + ylab("PTS") + ggtitle("PTS Boxplot")
 ggsave("../../images/PTS.png")
 ggplot(data = analysis, aes(analysis$PTS)) +
-  geom_histogram()
+  geom_histogram() + xlab("PTS") + ylab("Frequency") + ggtitle("PTS Histogram")
 ggsave("../../images/PTS1.png")
 ggplot(analysis, aes(x = analysis$Team)) +
-  geom_bar()
+  geom_bar() + xlab("Team") + ylab("Frequency") + ggtitle("TEAM players Barchart")
 ggsave("../../images/Team.png")
 ggplot(analysis, aes(x = analysis$position)) +
-  geom_bar()
+  geom_bar() + xlab("Position") + ylab("Frequency") + ggtitle("Position Barchart")
 ggsave("../../images/position.png")
