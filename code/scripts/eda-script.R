@@ -149,8 +149,8 @@ ggplot(data = analysis, aes(analysis$PTS)) +
   geom_histogram() + xlab("PTS") + ylab("Frequency") + ggtitle("PTS Histogram")
 ggsave("../../images/PTS1.png")
 ggplot(analysis, aes(x = analysis$Team)) +
-  geom_bar() + xlab("Team") + ylab("Frequency") + ggtitle("TEAM players Barchart")
+  geom_bar() + xlab("Team") + ylab("Number") + ggtitle("Team players Barchart")
 ggsave("../../images/Team.png")
 ggplot(analysis, aes(x = analysis$position)) +
-  geom_bar() + xlab("Position") + ylab("Frequency") + ggtitle("Position Barchart")
+  geom_bar() + xlab("Position") + ylab("Number") + ggtitle("Position Barchart")
 ggsave("../../images/position.png")
