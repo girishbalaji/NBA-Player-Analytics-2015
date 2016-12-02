@@ -89,11 +89,6 @@ merge_data <- function() {
     curr_df <-
       dplyr::mutate(curr_df, team_name = rep(team_names[team_num], nrow(curr_df)))
     
-    # #make the player, college, team_name factors
-    # curr_df$player = as.factor(curr_df$player)
-    # curr_df$college = as.factor(curr_df$college)
-    # curr_df$team_name = as.factor(curr_df$team_name)
-    
     all_players = rbind(all_players, curr_df)
     
   }

@@ -1,0 +1,66 @@
+Stats 133 - Final Project Slides
+========================================================
+author: Rachel Lee, Canishka de Silva, Yian Liou, Girish Balaji
+date: December 2, 2016
+autosize: true
+
+Introduction
+========================================================
+
+**Purpose:**  
+Through analysis of NBA data sets from 2015 - 2016, we answered the question, "*In the 2015-2016 season, how do the skills of a player relate to this salary?*"
+
+Process One | Cleaning
+========================================================
+
+- scraping data off NBA basetball-reference.com website to better categorize data
+
+```{r}
+input code here
+```
+
+Process Two | Exploratory Data Analysis
+========================================================
+
+- analysis of variables to calculate descriptive summaries for quantitative variables 
+
+#```{r}
+input code here
+
+Process Three | Principal Components Analysis
+========================================================
+
+- to compensate for drawbacks in EFF, different efficiency indices of the players' positions were taken into account
+
+```{r}
+input code here
+```
+
+Shiny App 
+========================================================
+
+- visualization of the relationship between player statistics including different statistics
+- main statistical analysis: salary and EFF 
+- correlation coefficient: 0.6721
+
+```{r, echo=FALSE}
+plot ()
+```
+
+Main Takeaways
+========================================================
+
+- coefficient correlation: 0.6721
+- meaning: the player’s performance and their respective salaries were positive correlated
+- 20 best valued players and 20 worst valued players were also analyzed as below:
+
+[1] "best Valued players"
+ [1] "Dahntay Jones"      "Jordan Hamilton"    "Jared Cunningham"   "Xavier Munford"     "Chuck Hayes"       
+ [6] "Jordan Farmar"      "Henry Sims"         "Elliot Williams"    "Lorenzo Brown"      "Alan Williams"     
+[11] "Michael Beasley"    "Nate Robinson"      "Axel Toupane"       "Bryce Dejean-Jones" "Justin Harper"     
+[16] "Coty Clarke"        "Andrew Goudelock"   "T.J. McConnell"     "Jordan Clarkson"    "Duje Dukan"        
+[1] "worst valued players"
+ [1] "Amir Johnson"      "LaMarcus Aldridge" "Kirk Hinrich"      "Andre Iguodala"    "Dwight Howard"    
+ [6] "Tyson Chandler"    "Chris Bosh"        "Andrew Bogut"      "Wesley Matthews"   "Kobe Bryant"      
+[11] "Enes Kanter"       "Tiago Splitter"    "Chris Kaman"       "Tristan Thompson"  "Kevin Garnett"    
+[16] "Omer Asik"         "Joel Anthony"      "Roy Hibbert"       "Nikola Pekovic"    "Sam Dekker"     
