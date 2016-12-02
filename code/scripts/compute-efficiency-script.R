@@ -1,3 +1,4 @@
+# Calculates the efficiency index for all players and value, saves into a csv.
 library(dplyr)
 library(XML)
 library(stringr)
