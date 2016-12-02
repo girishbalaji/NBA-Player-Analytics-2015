@@ -3,7 +3,6 @@ library(ggplot2)
 function(input, output) {
   output$stats_plot <- renderPlot({
     # Read in the clean team salaries data from csv
-  getwd()
     stat_csv = read.csv('team-salaries.csv')
     # Variables to store the inputs from the UI
     statistic = input$statistics
@@ -33,17 +32,21 @@ function(input, output) {
     
     # Conditional to consider ordering
     if(ordering == "Ascending") {
-      xorder= paste0("reorder(team_name, ", colnames(df[2]),")")
+      xorder= paste0("reorder(team_name, ", 
+                     colnames(df[2]),")")
     } else {
-      xorder= paste0("reorder(team_name, -", colnames(df[2]),")")
+      xorder= paste0("reorder(team_name, -", 
+                     colnames(df[2]),")")
     }
     
     # Plot the requested statistics
     ggplot(df, aes_string(x = xorder, y = colnames(df[2]))) +
       geom_bar(stat = "identity") +
       coord_flip() + scale_x_discrete(name = "Team Name") +
-      scale_y_continuous(name = clean_stat_name[current_stat_column - 1]) +
-      ggtitle(paste0(clean_stat_name[current_stat_column - 1]," per NBA Team"))
+      scale_y_continuous(name = 
+                    clean_stat_name[current_stat_column - 1]) +
+      ggtitle(paste0(clean_stat_name[current_stat_column - 1],
+                     " per NBA Team"))
     
   })
 }

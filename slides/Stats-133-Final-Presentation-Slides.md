@@ -35,11 +35,31 @@ Process Three | Principal Components Analysis
 
 
 
+Shiny App 
+========================================================
 
+- visualization of the relationship between player statistics including different statistics
+- main statistical analysis: salary and EFF 
+- correlation coefficient: 0.6721
 
+Shiny App (Continued)
+========================================================
+![](shinyapp-stat.png)
 
-```
-Error in parse(text = x, srcfile = src) : <text>:1:7: unexpected symbol
-1: input code
-          ^
-```
+Main Takeaways
+========================================================
+
+- coefficient correlation: 0.6721
+- meaning: the player’s performance and their respective salaries were positive correlated
+- 20 best valued players and 20 worst valued players were also analyzed as below:
+
+[1] "best Valued players"
+ [1] "Dahntay Jones"      "Jordan Hamilton"    "Jared Cunningham"   "Xavier Munford"     "Chuck Hayes"       
+ [6] "Jordan Farmar"      "Henry Sims"         "Elliot Williams"    "Lorenzo Brown"      "Alan Williams"     
+[11] "Michael Beasley"    "Nate Robinson"      "Axel Toupane"       "Bryce Dejean-Jones" "Justin Harper"     
+[16] "Coty Clarke"        "Andrew Goudelock"   "T.J. McConnell"     "Jordan Clarkson"    "Duje Dukan"        
+[1] "worst valued players"
+ [1] "Amir Johnson"      "LaMarcus Aldridge" "Kirk Hinrich"      "Andre Iguodala"    "Dwight Howard"    
+ [6] "Tyson Chandler"    "Chris Bosh"        "Andrew Bogut"      "Wesley Matthews"   "Kobe Bryant"      
+[11] "Enes Kanter"       "Tiago Splitter"    "Chris Kaman"       "Tristan Thompson"  "Kevin Garnett"    
+[16] "Omer Asik"         "Joel Anthony"      "Roy Hibbert"       "Nikola Pekovic"    "Sam Dekker"     

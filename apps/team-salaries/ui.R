@@ -4,7 +4,7 @@ fluidPage(
   #Title for page
   titlePanel("Statistics Per NBA Team"),
   
-  #Sidebar to control the input values:
+  # Sidebar to control the input values:
   #   Type of Statistic
   #   Ordering
   sidebarLayout(

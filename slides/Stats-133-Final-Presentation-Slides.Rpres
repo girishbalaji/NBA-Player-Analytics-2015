@@ -36,7 +36,7 @@ Process Three | Principal Components Analysis
 - to compensate for drawbacks in EFF, different efficiency indices of the players' positions were taken into account
 
 ```{r}
-input code here
+
 ```
 
 Shiny App 
@@ -46,9 +46,9 @@ Shiny App
 - main statistical analysis: salary and EFF 
 - correlation coefficient: 0.6721
 
-```{r, echo=FALSE}
-plot ()
-```
+Shiny App (Continued)
+========================================================
+![](shinyapp-stat.png)
 
 Main Takeaways
 ========================================================
