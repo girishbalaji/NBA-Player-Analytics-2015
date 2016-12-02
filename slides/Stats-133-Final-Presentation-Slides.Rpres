@@ -24,9 +24,17 @@ Process Two | Exploratory Data Analysis
 
 - analysis of variables to calculate descriptive summaries for quantitative variables 
 
-#```{r}
-input code here
-
+```{r}
+ggplot(analysis, aes(x = analysis$X1, y = analysis$salary)) +
+  geom_boxplot() + coord_flip() + xlab("") + ylab("Salary") + ggtitle("Salary Boxplot")
+ggplot(data = analysis, aes(analysis$salary)) +
+  geom_histogram() + xlab("Salary") + ylab("Frequency") + ggtitle("Salary Histogram")
+ggplot(analysis, aes(x = analysis$position)) +
+  geom_bar() + xlab("Position") + ylab("Number") + ggtitle("Position Barchart")
+```
+![](position.png)
+![](salaries.png)
+![](salaries1.png)
 Process Three | Principal Components Analysis
 ========================================================
 
