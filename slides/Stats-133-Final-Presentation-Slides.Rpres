@@ -10,14 +10,26 @@ Introduction
 **Purpose:**  
 Through analysis of NBA data sets from 2015 - 2016, we answered the question, "*In the 2015-2016 season, how do the skills of a player relate to this salary?*"
 
-Process One | Cleaning
+Process One | Scraping
 ========================================================
-
 - scraping data off NBA basetball-reference.com website to better categorize data
+- Below are samples of web data input and how we loaded it 
+![](presentation_pictures/raw_web_roster.png)
 
-```{r}
 
-```
+Process One Continued | Scraping
+========================================================
+- This function actually extracts the data from the site below
+![](presentation_pictures/download_data.png)
+- Part of the function sampling how we load roster data
+![](presentation_pictures/scrape_nba_tables.png)
+
+Process One Continued | Cleaning
+========================================================
+- This is the raw_data we have loaded into the CSVs
+![](presentation_pictures/raw_data_example.png)
+- This is our final output after hard cleaning work
+![](presentation_pictures/final_clean_data_example.png)
 
 Process Two | Exploratory Data Analysis
 ========================================================
@@ -30,14 +42,14 @@ Process Two | Exploratory Data Analysis
 ![](salaries1.png)
 ![](positioncode.png)
 ![](salarycode.png)
+
 Process Three | Principal Components Analysis
 ========================================================
 
 - to compensate for drawbacks in EFF, different efficiency indices of the players' positions were taken into account
-
-```{r}
-
-```
+![](presentation_pictures/pca_process_example.png)
+- Our final PCA efficiencies! We know the best players!
+![](presentation_pictures/pca_output_example.png)
 
 Shiny App 
 ========================================================

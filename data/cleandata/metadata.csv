@@ -1,0 +1,64 @@
+“data_file_name”,“col_name”,“description”
+team-salaries.csv,team_name,Team name
+team-salaries.csv,totalpayroll,Total pay roll
+team-salaries.csv,minimumsalary,Minimum Salary
+team-salaries.csv,maxsalary,Maximum Salary
+team-salaries.csv,firstquantile,First Quantile
+team-salaries.csv,median,Median
+team-salaries.csv,thirdquantile,Third Quantile
+team-salaries.csv,average,Average
+team-salaries.csv,interquartilerange,Interquantile Range
+team-salaries.csv,standardev,Standard Deviation
+all_players_data.csv,player,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,salary_rank,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,salary,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,roster_number,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,position,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,height,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,weight,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,birthday,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,country,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,experience,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,college,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,stat_rank,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,age,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,games,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,games_started,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,minutes_played,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,field_goals,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,field_goal_attempts,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,field_goal_pct,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,three_points,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,three_point_attempts,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,three_point_pct,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,two_points,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,two_point_attempts,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,two_point_pct,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,eff_field_goal_pct,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,free_throws,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,free_throw_attempts,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,free_throw_pct,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,offensive_rebounds,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,defensive_rebounds,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,total_rebounds,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,assists,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,steals,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,blocks,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,turnovers,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,personal_fouls,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,points,column name describes attribute of particular player whose name is said in player
+all_players_data.csv,team_name,column name describes attribute of particular player whose name is said in player
+eff_salary_stats.csv,points,column name describes attribute of particular player whose name is said in player
+eff_salary_stats.csv,total_rebounds,column name describes attribute of particular player whose name is said in player
+eff_salary_stats.csv,assists,column name describes attribute of particular player whose name is said in player
+eff_salary_stats.csv,steals,column name describes attribute of particular player whose name is said in player
+eff_salary_stats.csv,blocks,column name describes attribute of particular player whose name is said in player
+eff_salary_stats.csv,missed_field_goals,column name describes attribute of particular player whose name is said in player
+eff_salary_stats.csv,missed_free_throws,column name describes attribute of particular player whose name is said in player
+eff_salary_stats.csv,turnovers,column name describes attribute of particular player whose name is said in player
+eff_salary_stats.csv,games,column name describes attribute of particular player whose name is said in player
+eff_salary_stats.csv,player,column name describes attribute of particular player whose name is said in player
+eff_salary_stats.csv,position,column name describes attribute of particular player whose name is said in player
+eff_salary_stats.csv,salary,column name describes attribute of particular player whose name is said in player
+eff_salary_stats.csv,Eff,column name describes attribute of particular player whose name is said in player
+eff_salary_stats.csv,value,column name describes attribute of particular player whose name is said in player
