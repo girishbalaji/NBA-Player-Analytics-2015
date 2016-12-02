@@ -4,7 +4,11 @@ library(XML)
 library(stringr)
 
 source("code/functions/compute-efficiency-functions.R")
-
+#
+# Input: nothing (data scraped from csv)
+# Output: cleaned dataframe with all important factors used to create 
+# eff column so we can rank the player
+#
 compute_efficiency <- function() {
     important_factors <- c("points",
                            "total_rebounds",

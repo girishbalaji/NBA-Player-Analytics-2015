@@ -5,6 +5,8 @@ library(stringr)
 #
 # Final df get best and worst post processing 
 # Both prints to console and sinks output to text file
+# Input df
+# Output nothing just prints to console and loads file
 #
 output_best_and_worst <- function(final_eff_df) {
     write.csv(final_eff_df, file = paste0(
@@ -22,6 +24,8 @@ output_best_and_worst <- function(final_eff_df) {
 # load_per_game_data basically loads and standardizes the data needed
 # for this portion. Adds the appropriate negatively weighted columns as in
 # missed field goals
+# Input list of important factors
+# Ouput: df with relevant data
 #
 load_per_game_data <- function(important_factors) {
     #Clean all_players for appropriate analysis
@@ -42,6 +46,8 @@ load_per_game_data <- function(important_factors) {
 #
 # Get_position_efficiency returns the efficiency column with the correct
 # position dataframe passed in. Used above to perform PCA and weight projection
+# Inout: df
+# Output: efficiency column
 #
 get_position_efficiency <- function(position_df) {
     pca = prcomp(position_df[,1:8], scale=TRUE)
@@ -55,6 +61,8 @@ get_position_efficiency <- function(position_df) {
 #
 # Rbinds multiple position data frames. Make sure each dataframe has the same
 # correct column names. Used to bind all tables after computing efficiency
+# Input 5 dfs
+# output: all dfs rbinded
 #
 rbind_all_positions <- function(all_centers, all_power_forwards, 
                                 all_small_forwards, all_shooting_guards, 
@@ -69,6 +77,8 @@ rbind_all_positions <- function(all_centers, all_power_forwards,
 #
 # Negates all the weights if the majority of them are negative.
 # The weights refer to those weights we get from the first principal component.
+# Input: weights
+# Output: negative weights
 #
 reverse_negative_weights <- function(weights) {
     if (sum(sign(weights)) < 0) {
@@ -80,7 +90,9 @@ reverse_negative_weights <- function(weights) {
 # 
 # Negate the 'missed_field_goals', 'missed_free_throws', and 'turnovers' 
 # columns if they all exist.
-# Note that it does not mutate the original df so you must update the dataframe 
+# Note that it does not mutate the original df so you must update the dataframe
+# Input: df
+# Output: df with particular columns negated
 # 
 negate_bad_columns <- function(df) {
     df$missed_field_goals = -1 * df$missed_field_goals

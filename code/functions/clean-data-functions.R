@@ -7,6 +7,8 @@ library(stringr)
 # Merge data essentially pulls the list of all the teams from basketball 
 # href website. Then iterates through all the teams in each raw data folder
 # and merges all the data frames from each folder.
+# Input: nothing
+# Output: merged df
 #
 
 merge_data <- function() {
@@ -109,6 +111,8 @@ merge_data <- function() {
 #
 # clean_numeric_data essentially converts salary and height to numeric data
 # types so they are easier to work with
+# Input: df
+# Output: cleaned df
 #
 
 clean_numeric_data <- function(df) {
@@ -127,6 +131,8 @@ clean_numeric_data <- function(df) {
 #
 # Clean_datetime_data basically converts the birthday columbn to that
 # of type data that is easy to work with in R
+# Input: df
+# Output: cleaned df
 #
 
 clean_datetime_data <- function(df) {
@@ -141,6 +147,8 @@ clean_datetime_data <- function(df) {
 # Clean_col_names basically fixes all the colnames so that they are very
 # clear. This function specifically works for the df on which this function
 # is called in clean_data script
+# Input: df
+# Output: cleaned df
 #
 
 clean_col_names <- function(df) {
@@ -196,6 +204,8 @@ clean_col_names <- function(df) {
 #
 # clean_bad_position cleans the data frames for all rows that don't have 
 # a position value passed in
+# Input: df
+# Output: cleaned df
 #
 
 clean_bad_positions <- function(df) {
