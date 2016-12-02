@@ -36,12 +36,16 @@ Process Two | Exploratory Data Analysis
 
 - analysis of variables to calculate descriptive summaries for quantitative variables 
 
-
+![](positioncode.png)
 ![](position.png)
+
+
+========================================================
+Process Two | Exploratory Data Analysis Continued
+- Analysis of variables to Calculate descriptive summaries for quantitative variables
+![](salarycode.png)
 ![](salaries.png)
 ![](salaries1.png)
-![](positioncode.png)
-![](salarycode.png)
 
 Process Three | Principal Components Analysis
 ========================================================
