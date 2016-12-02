@@ -17,6 +17,22 @@ Process One | Cleaning
 
 
 
+Process Two | Exploratory Data Analysis
+========================================================
+
+- analysis of variables to calculate descriptive summaries for quantitative variables 
+
+
+![](position.png)
+![](salaries.png)
+![](salaries1.png)
+![](positioncode.png)
+![](salarycode.png)
+Process Three | Principal Components Analysis
+========================================================
+
+- to compensate for drawbacks in EFF, different efficiency indices of the players' positions were taken into account
+
 
 
 
