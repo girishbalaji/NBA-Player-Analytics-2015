@@ -1,4 +1,4 @@
-“data_file_name”,“col_name”,“description”
+data_file_name,col_name,description
 team-salaries.csv,team_name,Team name
 team-salaries.csv,totalpayroll,Total pay roll
 team-salaries.csv,minimumsalary,Minimum Salary
