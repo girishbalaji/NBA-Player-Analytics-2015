@@ -2,8 +2,14 @@
 
 NBA Analytics
 
-Description:Contains the files required for the Stat 133 Final Project in 
-Fall 2016.
+Description: Contains the files required for the statistics (133) final project in 
+Fall 2016. Using basic machine learning techniques, we characterized players' value by position and assessed their value (per dollar) to each team. 
+
+For quick look at final data, view 'finalInterestingData' directory for best players sorted by overall value and value per dollar. 
+Additionally, look at these links for awesome visualizations and insights into interesting trends in the NBA.
+
+Stat-Salaries: https://canishka.shinyapps.io/stat-salaries/ 
+Team-Salaries: https://canishka.shinyapps.io/team-salaries/
 
 Authors: Girish Balaji, Rachel Lee, Yian Liou, Canishka De Silva
 
